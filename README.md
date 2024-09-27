@@ -26,6 +26,7 @@ with open('best_model.onnx', 'wb') as f:
 ```bash
 aarch64-linux-gnu-g++ -o model_inference model_inference.cpp -I/home/phani/onnxruntime-linux-aarch64-1.18.0/include -L/home/phani/onnxruntime-linux-aarch64-1.18.0/lib -lonnxruntime
 aarch64-linux-gnu-g++ -o model_inference model_inference.cpp -I/home/phani/onnxruntime-linux-aarch64-1.18.0/include -L/home/phani/onnxruntime-linux-aarch64-1.18.0/lib -lonnxruntime -std=c++17
+aarch64-linux-gnu-g++ -o model_inference1 model_inference1.cpp -I/home/phani/onnxruntime-linux-aarch64-1.18.0/include -L/home/phani/onnxruntime-linux-aarch64-1.18.0/lib -lonnxruntime -std=c++17
 
 ```
 ```bash
