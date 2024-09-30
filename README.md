@@ -1,5 +1,14 @@
 # qemu-regression
 
+```bash
+# launch qemu env
+wsl
+conda activate vcm
+cd vdsp-linux
+KAS_BUILD_DIR="build-vcm-qemu64" kas shell conf/vcm.yml 
+runqemu vcm-qemu nographic slirp
+```
+
 ```python
 # convert .pkl model to onnx
 import pickle
