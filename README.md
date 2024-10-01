@@ -9,6 +9,7 @@ conda activate vcm
 cd vdsp-linux
 KAS_BUILD_DIR="build-vcm-qemu64" kas shell conf/vcm.yml 
 runqemu vcm-qemu nographic slirp
+export LD_LIBRARY_PATH=/root/onnxruntime-linux-aarch64-1.18.0/lib:$LD_LIBRARY_PATH
 ```
 
 ```python
