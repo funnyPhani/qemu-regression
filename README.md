@@ -3,6 +3,8 @@
 ```bash
 # launch qemu env
 wsl
+export PATH=~/miniconda3/bin:$PATH
+source ~/.bashrc
 conda activate vcm
 cd vdsp-linux
 KAS_BUILD_DIR="build-vcm-qemu64" kas shell conf/vcm.yml 
