@@ -44,10 +44,10 @@ aarch64-linux-gnu-g++ -o model_inference1 model_inference1.cpp -I/home/phani/onn
 ```bash
 scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/model_inference root@localhost:/root/
 scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/best_model.onnx root@localhost:/root/
-scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/scalar.txt root@localhost:/root/
- scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/ann_model.onnx   root@localhost:/root/
- scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/scalars.txt   root@localhost:/root/
- scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/model_inference3   root@localhost:/root/
+scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/scaler.txt root@localhost:/root/
+scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/ann_model.onnx   root@localhost:/root/
+scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/scalers.txt   root@localhost:/root/
+scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/model_inference3   root@localhost:/root/
 ```
 ```bash
 # qemu
