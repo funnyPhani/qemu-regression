@@ -1,0 +1,153 @@
+hello
+
+export http_proxy='http://httppxgot-gssd.srv.volvo.com:8080'
+export http_proxy='http://httppxgot-gssd.srv.volvo.com:8080'
+export https_proxy=$http_proxy
+export ftp_proxy=$http_proxy
+export no_proxy='localhost,127.0.0.1,.volvo.net,.volvo.com'
+export http_proxy=http://httppxgot-gssd.srv.volvo.com:8080
+export https_proxy=$http_proxy
+export no_proxy="localhost,127.0.0.1,.volvo.net,.volvo.com"
+
+
+
+
+
+
+
+
+
+export http_proxy=http://httppxgot-gssd.srv.volvo.com:8080
+export https_proxy=http://httppxgot-gssd.srv.volvo.com:8080
+export no_proxy=localhost,127.0.0.1,.volvo.net,.volvo.com
+
+pip3 install scikit-learn --index-url https://esw-artifactory.got.volvo.net/artifactory/api/pypi/pip/simple --trusted-host esw-artifactory.got.volvo.net
+
+
+
+/root/onnxruntime-linux-aarch64-1.18.1/lib
+
+export LD_LIBRARY_PATH=/root/onnxruntime-linux-aarch64-1.18.1/lib/lib:$LD_LIBRARY_PATH
+
+g++ test_model.cpp -o test_model -I/root/onnxruntime-linux-aarch64-1.18.1/include -L/root/onnxruntime-linux-aarch64-1.18.1/lib -lonnxruntime
+
+
+aarch64-linux-gnu-g++ test_model.cpp -o test_model -I/root/onnxruntime-linux-aarch64-1.18.1/include -L/root/onnxruntime-linux-aarch64-1.18.1/lib -lonnxruntime
+
+
+pip3 install pandasai --index-url https://esw-artifactory.got.volvo.net/artifactory/api/pypi/pip/simple --trusted-host esw-artifactory.got.volvo.net
+
+
+onnxruntime_test \
+--model_path resnet_model.onnx \
+--input_shape "input:1,3,224,224" \
+--input_type "float" \
+--output_names "output"
+
+g++ -o onnx_inference onnx_inference.cpp \
+    -I~/home/phani/onnxruntime-linux-x64-1.18.1/include \
+    -L~/home/phani/onnxruntime-linux-x64-1.18.1/lib \
+    -lonnxruntime -pthread
+
+
+---------------------------------------------------------------------------------
+in wsl- (base) phani@INBLRWGH3HP73:~/final$   for x86_64
+
+run in final folder
+export LD_LIBRARY_PATH=/home/phani/onnxruntime-linux-x64-1.18.1/lib:$LD_LIBRARY_PATH
+
+random tensors
+
+g++ -o onnx_inference test.cpp \
+    -I/home/phani/onnxruntime-linux-x64-1.18.1/include \
+    -L/home/phani/onnxruntime-linux-x64-1.18.1/lib \
+    -lonnxruntime -pthread
+
+./onnx_inference /home/phani/final/resnet_model.onnx > output.txt
+
+cat output.txt
+
+input image from the user for x86_64
+
+g++ -o onnx_inference imageTest.cpp \
+    -I/home/phani/onnxruntime-linux-x64-1.18.1/include \
+    -I/usr/include/opencv4 \
+    -L/home/phani/onnxruntime-linux-x64-1.18.1/lib \
+    -L/usr/lib \
+    -lonnxruntime -lopencv_core -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -pthread
+
+
+./onnx_inference /home/phani/final/resnet_model.onnx /home/phani/final/VCM_Test/pilota-Copy/ud_images/1646928654458504.png
+
+
+g++ -o onnx_inference imageTest.cpp \
+    -I/home/phani/onnxruntime-linux-x64-1.18.1/include \
+    -I/usr/include/opencv4 \
+    -L/home/phani/onnxruntime-linux-x64-1.18.1/lib \
+    -L/usr/lib \
+    -lonnxruntime -lopencv_core -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -pthread
+
+./onnx_inference /home/phani/final/resnet_model.onnx /home/phani/final/VCM_Test/pilota-Copy/d_images/1646928378558513.png
+
+---------------------------------------------------------------------------------
+
+
+==================================================================================
+for aarch64 in same wsl cmd
+run in qemu env inside VCM_Test folder
+
+aarch64-linux-gnu-gcc -o test test.cpp \
+-I/home/phani/onnxruntime-linux-aarch64-1.18.0/include \
+-L/home/phani/onnxruntime-linux-aarch64-1.18.0/lib \
+-lonnxruntime -lstdc++
+
+./test /home/phani/final/resnet_model.onnx 
+(not work in wsl bzc of x86_64 is not compatable with aarch64, so send the test binary file to qemu env and run the below cmd)
+
+
+
+export LD_LIBRARY_PATH=/root/onnxruntime-linux-aarch64-1.18.0/lib:$LD_LIBRARY_PATH
+./test /root/VCM_Test/resnet_model.onnx
+
+(in qemu)
+
+=====================================================================================
+
+
+
+
+
+aarch64-linux-gnu-gcc -o image_inference imageTest1.cpp \
+    -I/usr/include/opencv4 \
+    -I/home/phani/onnxruntime-linux-aarch64-1.18.0/include \
+    -L/usr/include/opencv4/lib \
+    -L/home/phani/onnxruntime-linux-aarch64-1.18.0/lib \
+    -lopencv_core -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui \
+    -lonnxruntime -lstdc++ -pthread
+
+
+
+g++ -o onnx_inference imageTest.cpp \
+    -I/home/phani/onnxruntime-linux-x64-1.18.1/include \
+    -I/usr/include/opencv4 \
+    -L/home/phani/onnxruntime-linux-x64-1.18.1/lib \
+    -L/usr/lib \
+    -lonnxruntime -lopencv_core -lopencv_imgcodecs -lopencv_imgproc -pthread
+
+./onnx_inference /home/phani/final/resnet_model.onnx > output.txt
+
+cat output.txt
+
+
+export LD_LIBRARY_PATH=/root/onnxruntime-linux-aarch64-1.18.1/lib:$LD_LIBRARY_PATH
+
+
+g++ -o onnx_inference test.cpp -I/root/onnxruntime-linux-aarch64-1.18.1/include -L/root/onnxruntime-linux-aarch64-1.18.1/lib -lonnxruntime -pthread
+
+
+aarch64-linux-gnu-gcc -o test test.cpp -I\home\phani\onnxruntime-linux-aarch64-1.18.0\include -L\home\phani\onnxruntime-linux-aarch64-1.18.0\lib -lonnxruntime
+
+
+
+\\wsl.localhost\Ubuntu\home\phani\onnxruntime-linux-aarch64-1.18.0\include
+\\wsl.localhost\Ubuntu\home\phani\onnxruntime-linux-aarch64-1.18.0\lib
