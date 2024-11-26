@@ -99,8 +99,8 @@ int predict(const std::vector<float>& input_data, Ort::Session& session) {
     std::cout << std::endl;
 
     // Get input/output names (use the correct names from your model)
-    const char* input_name = "input";  // Updated input name
-    const char* output_name = "output_label";  // Updated output name
+    const char* input_name = "dense_68_input";  // Updated input name
+    const char* output_name = "dense_71";  // Updated output name
 
     // Measure inference time
     auto start_time = std::chrono::high_resolution_clock::now();
@@ -135,9 +135,9 @@ int main() {
     }
 
     // Initialize ONNX Runtime environment and session
-    Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "classification");
+    Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "classification1");
     Ort::SessionOptions session_options;
-    Ort::Session session(env, "RF.onnx", session_options);  // Ensure model path is correct
+    Ort::Session session(env, "classification_ann_model.onnx", session_options);  // Ensure model path is correct
 
     // Measure memory usage before inference
     double memory_before = getMemoryUsageMB();
@@ -145,14 +145,13 @@ int main() {
     // Perform prediction
     try {
         int predicted_class = predict(input_data, session);
-        std::cout << "Predicted Class: " << predicted_class << std::endl;
-    } catch (const Ort::Exception& e) {classification_rf.cpp
+        std::cout << "Predicted Class: " << predicted_class+1 << std::endl;
+    } catch (const Ort::Exception& e) {
         std::cerr << "Error during inference: " << e.what() << std::endl;
     }
 
     // Measure memory usage after inference
     double memory_after = getMemoryUsageMB();
-    // std::cout << "Memory usage before inference: " << memory_before << " MB" << std::endl;
     std::cout << "Memory usage: " << memory_after << " MB" << std::endl;
 
     return 0;
