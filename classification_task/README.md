@@ -10,3 +10,5 @@ aarch64-linux-gnu-g++ -o classification classification_rf.cpp     -I/home/phani/
 scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/classification1 root@localhost:/root/
 scp -P 2222 -r /mnt/c/Users/A507658/Downloads/qwen2-docker/classification root@localhost:/root/
 ```
+
+![Image](https://github.com/funnyPhani/qemu-regression/blob/main/classification_task/image.png)
